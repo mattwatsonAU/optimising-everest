@@ -369,17 +369,14 @@ uint32_t sum_all_elements=0;
 uint32_t get_trace(const uint32_t* matrix) 
 {
 
-    /*
-        to do
+    uint32_t matrix_trace=0;
 
-        1 0
-        0 1 => 2
+    for (ssize_t c=0; c<g_width; c++)
+    {
+        matrix_trace += matrix[(c*g_width) + c];
+    }
 
-        2 1
-        1 2 => 4
-    */
-
-    return 0;
+    return matrix_trace;
 }
 
 /**
