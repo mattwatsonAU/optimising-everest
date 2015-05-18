@@ -259,15 +259,10 @@ uint32_t* scalar_add(const uint32_t* matrix, uint32_t scalar)
 
     uint32_t* result = new_matrix();
 
-    /*
-        to do
-
-        1 0        2 1
-        0 1 + 1 => 1 2
-
-        1 2        5 6
-        3 4 + 4 => 7 8
-    */
+    for (ssize_t c =0; c<g_elements; c++)
+    {
+        result[c] = matrix[c] + scalar;
+    }
 
     return result;
 }
