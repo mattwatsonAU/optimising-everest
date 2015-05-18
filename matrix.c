@@ -291,15 +291,10 @@ uint32_t* matrix_add(const uint32_t* matrix_a, const uint32_t* matrix_b)
 
     uint32_t* result = new_matrix();
 
-    /*
-        to do
-
-        1 0   0 1    1 1
-        0 1 + 1 0 => 1 1
-
-        1 2   4 4    5 6
-        3 4 + 4 4 => 7 8
-    */
+    for (ssize_t c=0; c<g_elements; c++)
+    {
+        result[c] = matrix_a[c] + matrix_b[c];
+    }
 
     return result;
 }
