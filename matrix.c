@@ -402,18 +402,17 @@ uint32_t get_minimum(const uint32_t* matrix)
  */
 uint32_t get_maximum(const uint32_t* matrix) 
 {
+    uint32_t matrix_largest_val =  matrix[0];
 
-    /*
-        to do
+    for (ssize_t c=0; c<g_elements; c++)
+    {
+        if(matrix[c] > matrix_largest_val)
+        {
+            matrix_largest_val = matrix[c];
+        }
+    }
 
-        1 2
-        3 4 => 4
-
-        4 3
-        2 1 => 4
-    */
-
-    return 0;
+    return matrix_largest_val;
 }
 
 /**
