@@ -328,32 +328,17 @@ uint32_t* matrix_mul(const uint32_t* matrix_a, const uint32_t* matrix_b)
 uint32_t* matrix_pow(const uint32_t* matrix, uint32_t exponent) 
 {
 
-    uint32_t* result = new_matrix();
-
-    
-    
-    for (int c=0; c<exponent-1 && exponent!=0; c++)
-    {
-        result = matrix_mul(result, matrix);
-    }
+    uint32_t* result = cloned(matrix);
 
     if(exponent==0)
     {
         result = identity_matrix();
     }
-
-    /*
-        to do
-
-        1 2        1 0
-        3 4 ^ 0 => 0 1
-
-        1 2        1 2
-        3 4 ^ 1 => 3 4
-
-        1 2        199 290
-        3 4 ^ 4 => 435 634
-    */
+    
+    for (int c=0; c<exponent-1 && exponent!=0; c++)
+    {
+        result = matrix_mul(result, matrix);
+    }
 
     return result;
 }
