@@ -307,15 +307,17 @@ uint32_t* matrix_mul(const uint32_t* matrix_a, const uint32_t* matrix_b)
 
     uint32_t* result = new_matrix();
 
-    /*
-        to do
-
-        1 2   1 0    1 2
-        3 4 x 0 1 => 3 4
-
-        1 2   5 6    19 22
-        3 4 x 7 8 => 43 50
-    */
+    for (ssize_t c=0; c<g_elements; c++)
+    {
+        for (ssize_t first_row = (c/g_width) * g_width; first_row<g_elements;)
+        {
+            for(ssize_t second_column = (c%g_width); second_column<g_elements; second_column += g_width)
+            {
+                result[c] += (matrix_a[first_row++] * matrix_b[second_column]);
+            }
+            break;
+        }
+    }
 
     return result;
 }
