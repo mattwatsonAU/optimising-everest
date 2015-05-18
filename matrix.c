@@ -353,18 +353,14 @@ uint32_t* matrix_pow(const uint32_t* matrix, uint32_t exponent)
  */
 uint32_t get_sum(const uint32_t* matrix) 
 {
+uint32_t sum_all_elements=0;
 
-    /*
-        to do
+    for (ssize_t c=0; c<g_elements; c++)
+    {
+        sum_all_elements += matrix[c];
+    }
 
-        1 2
-        2 1 => 6
-
-        1 1
-        1 1 => 4
-    */
-
-    return 0;
+    return sum_all_elements;
 }
 
 /**
