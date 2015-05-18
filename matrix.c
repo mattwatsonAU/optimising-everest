@@ -421,15 +421,15 @@ uint32_t get_maximum(const uint32_t* matrix)
 uint32_t get_frequency(const uint32_t* matrix, uint32_t value) 
 {
 
-    /*
-        to do
+    uint32_t freq_counter=0;
 
-        1 1
-        1 1 :: 1 => 4
+    for(ssize_t c=0; c<g_elements; c++)
+    {
+        if(matrix[c] == value)
+        {
+            freq_counter++;
+        }
+    }
 
-        1 0
-        0 1 :: 2 => 0
-    */
-
-    return 0;
+    return freq_counter;
 }
