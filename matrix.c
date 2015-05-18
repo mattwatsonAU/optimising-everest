@@ -384,18 +384,17 @@ uint32_t get_trace(const uint32_t* matrix)
  */
 uint32_t get_minimum(const uint32_t* matrix) 
 {
+    uint32_t matrix_smallest_val = matrix[0];
 
-    /*
-        to do
+    for (ssize_t c=0; c<g_elements; c++)
+    {
+        if(matrix[c] < matrix_smallest_val)
+        {
+            matrix_smallest_val = matrix[c];
+        }
+    }
 
-        1 2
-        3 4 => 1
-
-        4 3
-        2 1 => 1
-    */
-
-    return 0;
+    return matrix_smallest_val;
 }
 
 /**
