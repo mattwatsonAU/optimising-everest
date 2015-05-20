@@ -335,10 +335,15 @@ uint32_t* matrix_pow(const uint32_t* matrix, uint32_t exponent)
         result = identity_matrix();
     }
     
-    for (int c=0; c<exponent-1 && exponent!=0; c++)
+    else
     {
-        result = matrix_mul(result, matrix);
+        for (int c=0; c<exponent-1 && exponent!=0; c++)
+        {
+            result = matrix_mul(result, matrix);
+        }
     }
+
+    
 
     return result;
 }
